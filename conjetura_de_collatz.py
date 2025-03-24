@@ -1,7 +1,7 @@
 
 
 
-def collatz_hypothesis(c0):
+def conjetura_de_collatz(c0):
     if c0 <= 0:
         print("El número debe ser un entero positivo.")
         return
@@ -22,6 +22,6 @@ def collatz_hypothesis(c0):
 # Leer número del usuario
 try:
     c0 = int(input("Ingresa un número natural: "))
-    collatz_hypothesis(c0)
+    conjetura_de_collatz(c0)
 except ValueError:
     print("Por favor, ingresa un número válido.")

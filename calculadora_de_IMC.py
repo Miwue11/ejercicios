@@ -10,7 +10,6 @@
 #>30: obesidad
 
 def calculadora_imc():
-    
     try:
         nombre= input("hola crack, como te llamas: ")
         peso= float(input(f"hola {nombre}, cuanto pesas en kilos: "))

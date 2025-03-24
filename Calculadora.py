@@ -9,15 +9,15 @@ class Calculadora():
 
     def sumar_dos():
     
-    #iniciando un bucle while
+
         while True:
-        #pidiendo numeros
+
             a=float(input("hola dime un numero: "))
             b=float(input("buenas, ahora el segundo numero: "))
-        #intentando convertirlos a enteros y sumandolos
+
             try:
                 resultado= (a+b)
-        #excepciones    
+    
             except ValueError:
                 print("No he podido hacer la operacion, introduce solo numeros.")
             else:
@@ -27,9 +27,9 @@ class Calculadora():
 
     def multiplicar_dos():
     
-    #iniciando un bucle while
+
         while True:
-        #pidiendo numeros
+
             try:
                 a=input("hola dime un numero: ")
                 b=input("buenas, ahora el segundo numero: ")
@@ -40,13 +40,13 @@ class Calculadora():
                 break
         print (resultado)
         
-    #mostrando el resultado
+
         
     def dividir_dos():
         
-        #iniciando un bucle while
+
         while True:
-            #pidiendo numeros
+
             try:
                 a=input("hola dime un numero: ")
                 b=input("buenas, ahora el segundo numero: ")
@@ -59,9 +59,9 @@ class Calculadora():
         
     def restar_dos():
         
-        #iniciando un bucle while
+
         while True:
-            #pidiendo numeros
+
             try:
                 a=input("hola dime un numero: ")
                 b=input("buenas, ahora el segundo numero: ")
