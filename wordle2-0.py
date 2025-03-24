@@ -11,7 +11,7 @@ def normalizar_palabra(palabra):
 
 def cargar_palabras():
     """Carga y filtra palabras válidas desde el archivo palabras_validas.txt."""
-    filepath = "PYTHON\\proyectos\\palabras_validas.txt"
+    filepath = "palabras_validas.txt"
     palabras = set()
     if not os.path.exists(filepath):
         print(f"Error: No se encontró el archivo '{filepath}'.")
@@ -29,14 +29,13 @@ def cargar_palabras():
     return list(palabras) if palabras else []
 
 def filtrar_palabras(palabras_posibles, intento, resultado):
-    """Filtra palabras basándose en el resultado del intento de Wordle."""
+    "Filtra palabras basándose en el resultado del intento de Wordle."
     nuevas_palabras = []
 
     for palabra in palabras_posibles:
         palabra_normalizada = normalizar_palabra(palabra)
         coincide = True
         
-        # Conteos de letras en la palabra y en el intento
         conteo_intento = {letra: intento.count(letra) for letra in set(intento)}
         conteo_palabra = {letra: palabra_normalizada.count(letra) for letra in set(palabra_normalizada)}
 
@@ -44,17 +43,17 @@ def filtrar_palabras(palabras_posibles, intento, resultado):
             letra_intento = intento[i]
             letra_palabra = palabra[i]
 
-            if resultado[i] == 'b':  # 'b' -> Letra en la posición correcta
+            if resultado[i] == 'b':  
                 if letra_palabra != letra_intento:
                     coincide = False
                     break
 
-            elif resultado[i] == 'c':  # 'c' -> Letra está en otra posición
+            elif resultado[i] == 'c': 
                 if letra_intento not in palabra_normalizada or letra_palabra == letra_intento:
                     coincide = False
                     break
 
-            elif resultado[i] == 'm':  # 'm' -> Letra NO está en la palabra en ninguna posición
+            elif resultado[i] == 'm':
                 if conteo_intento[letra_intento] <= conteo_palabra.get(letra_intento, 0):
                     coincide = False
                     break
@@ -66,8 +65,6 @@ def filtrar_palabras(palabras_posibles, intento, resultado):
         print("⚠️ ERROR: Se eliminaron todas las palabras. Verifica la lógica de filtrado.")
 
     return nuevas_palabras
-
-
 
 def seleccionar_mejor_palabra(palabras_posibles):
     """Selecciona la mejor palabra basada en la frecuencia de letras."""
@@ -81,7 +78,7 @@ def seleccionar_mejor_palabra(palabras_posibles):
     palabras_posibles.sort(key=puntuacion_palabra, reverse=True)
     return palabras_posibles[0]
 
-def wordle_solver():
+def adivina_worlde():
     print("\n¡Bienvenido al solucionador de Wordle en español!")
     palabras_validas = cargar_palabras()
     
@@ -94,7 +91,6 @@ def wordle_solver():
     retroalimentacion_acumulada = ""
     intentos_previos = set()
     
-    # Solicitar la primera palabra al usuario
     while True:
         primer_intento = input("Ingresa la primera palabra de 5 letras: ").strip().upper()
         primer_intento_normalizado = normalizar_palabra(primer_intento)
@@ -154,4 +150,4 @@ def wordle_solver():
         print("No quedan palabras posibles según las indicaciones dadas.")
 
 if __name__ == "__main__":
-    wordle_solver()
+    adivina_worlde()
